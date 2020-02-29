@@ -1,5 +1,14 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
-const App = () => <h1>Rocketshoes</h1>
+import Header from './components/Header'
+import Routes from './routes'
+
+const App = () => (
+  <BrowserRouter>
+    <Header />
+    <Routes />
+  </BrowserRouter>
+)
 
 export default App
