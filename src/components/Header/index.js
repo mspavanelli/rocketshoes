@@ -1,5 +1,23 @@
 import React from 'react'
+import { MdShoppingBasket } from 'react-icons/md'
+import { Link } from 'react-router-dom'
 
-const Header = () => <header>Header</header>
+import Logo from '../../assets/images/header-logo.svg'
+import { Container, Cart } from './styles'
+
+const Header = () => (
+  <Container>
+    <Link to="/">
+      <img src={Logo} alt="Rocketshoes" />
+    </Link>
+    <Cart to="/cart">
+      <div>
+        <strong>Meu carrinho</strong>
+        <span>0 itens</span>
+      </div>
+      <MdShoppingBasket size="36" color="fff" />
+    </Cart>
+  </Container>
+)
 
 export default Header

@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-import BackgroundHeader from '../assets/images/background-header.svg'
+import BackgroundHeader from '../assets/images/header-background.svg'
 
 const globalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap');
