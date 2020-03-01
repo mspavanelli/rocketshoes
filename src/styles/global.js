@@ -22,6 +22,7 @@ const globalStyle = createGlobalStyle`
 
   body, input, button {
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-size: 14px;
   }
 
   button {
