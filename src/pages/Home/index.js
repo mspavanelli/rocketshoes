@@ -1,26 +1,38 @@
-import React from 'react'
-
+import React, { useState, useEffect } from 'react'
 import ProductCard from '../../components/ProductCard'
 import { Container } from './styles'
+import api from '../../services/api'
+import { formatPrice } from '../../utils/format'
 
-const Home = () => (
-  <Container>
-    <ProductCard
-      image="https://images-na.ssl-images-amazon.com/images/I/61utX8kBDlL._UL1100_.jpg"
-      price="129,90"
-      description="Tênis básico"
-    />
-    <ProductCard
-      image="https://images-na.ssl-images-amazon.com/images/I/61utX8kBDlL._UL1100_.jpg"
-      price="129,90"
-      description="Tênis básico com uma descrição tão grande que foi para a segunda linha"
-    />
-    <ProductCard
-      image="https://images-na.ssl-images-amazon.com/images/I/61utX8kBDlL._UL1100_.jpg"
-      price="129,90"
-      description="Tênis básico"
-    />
-  </Container>
-)
+const Home = () => {
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    const getProducts = async () => {
+      const response = await api.get('/products')
+
+      const productsResponse = response.data.map(product => ({
+        ...product,
+        formattedPrice: formatPrice(product.price),
+      }))
+      console.table(productsResponse)
+      setProducts(productsResponse)
+    }
+    getProducts()
+  }, [])
+
+  return (
+    <Container>
+      {products.map(product => (
+        <ProductCard
+          description={product.title}
+          image={product.image}
+          key={product.id}
+          price={product.formattedPrice}
+        />
+      ))}
+    </Container>
+  )
+}
 
 export default Home
