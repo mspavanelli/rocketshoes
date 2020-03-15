@@ -1,7 +1,8 @@
-import { darken } from 'polished'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
+import { darken } from 'polished'
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
   background: #fff;
   border-radius: 4px;
   display: flex;

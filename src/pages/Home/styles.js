@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-export const Container = styled.main`
+export const Container = styled(motion.main)`
   display: grid;
   grid-gap: 20px;
   list-style: none;
